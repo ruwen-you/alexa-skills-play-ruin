@@ -36,15 +36,48 @@ class CustomHandler < AlexaSkillsRuby::Handler
   end
 
   on_intent("HERE") do
-  # add a response to Alexa
-  response.set_output_speech_text("I've updated your status to Here ")
-  # create a card response in the alexa app
-  response.set_simple_card("Out of Office App", "Status is in the office.")
-  # log the output if needed
-  logger.info 'Here processed'
-  # send a message to slack
-  update_status "HERE"
-end
+    # add a response to Alexa
+    response.set_output_speech_text("I've updated your status to Here ")
+    # create a card response in the alexa app
+    response.set_simple_card("Out of Office App", "Status is in the office.")
+    # log the output if needed
+    logger.info 'Here processed'
+    # send a message to slack
+    update_status "HERE"
+  end
+
+  on_intent("BE_RIGHT_BACK") do
+    # add a response to Alexa
+    response.set_output_speech_text("I've updated your status to BE RIGHT BACK ")
+    # create a card response in the alexa app
+    response.set_simple_card("Out of Office App", "Status is out of the office.")
+    # log the output if needed
+    logger.info 'BE_RIGHT_BACK processed'
+    # send a message to slack
+    update_status "BE_RIGHT_BACK"
+  end
+
+  on_intent("GONE_HOME") do
+    # add a response to Alexa
+    response.set_output_speech_text("I've updated your status to GONE HOME ")
+    # create a card response in the alexa app
+    response.set_simple_card("Out of Office App", "Status is at home.")
+    # log the output if needed
+    logger.info 'GONE_HOME processed'
+    # send a message to slack
+    update_status "GONE_HOME"
+  end
+
+  on_intent("DO_NOT_DISTURB") do
+    # add a response to Alexa
+    response.set_output_speech_text("I've updated your status to DO NOT DISTURB ")
+    # create a card response in the alexa app
+    response.set_simple_card("Out of Office App", "Status is in a meeting.")
+    # log the output if needed
+    logger.info 'DO_NOT_DISTURB processed'
+    # send a message to slack
+    update_status "DO_NOT_DISTURB"
+  end
 
 end
 

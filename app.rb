@@ -110,6 +110,17 @@ class CustomHandler < AlexaSkillsRuby::Handler
     update_status "BACK_IN", duration
   end
 
+  on_intent("AUDIO") do
+    response.set_output_speech_ssml("<speak>
+    Welcome to Car-Fu.
+    <audio src='soundbank://soundlibrary/transportation/amzn_sfx_car_accelerate_01' />
+    You can order a ride, or request a fare estimate.
+    Which will it be?
+    </speak>")
+    logger.info 'AUDIO processed'
+  end
+end
+
 end
 
 # ----------------------------------------------------------------------
